@@ -102,7 +102,7 @@
 
     /* Console.log */
     errorBtns[0].addEventListener('click', function(){
-      console.log("This is a console.log test!");
+      console.log("This is a logging test!");
     });
     
     /* Console.error */
@@ -112,7 +112,7 @@
 
     /* Console.count */
     errorBtns[2].addEventListener('click', function(){
-      console.count("You have pressed this button this many times: ");
+      console.count("Button pressed this many times");
     });
 
     /* Console.warn */
@@ -120,7 +120,28 @@
       console.warn("Hello, this is a warning for you.");
     });
 
+    /* Console.assert */
+    errorBtns[4].addEventListener('click', function(){
+      const str1 = "Hello World!";
+      const str2 = "I love CSE110!";
+      const reason = 'Length of str2 is greater than length of str1';
+      console.assert(str1.length > str2.length, {str1,str2, reason});
+    });
 
+    /* Console.clear */
+    errorBtns[5].addEventListener('click', function(){
+      console.clear();
+    });
+
+    /* Console.dir */
+    errorBtns[6].addEventListener('click', function(){
+      console.dir(document.head);
+    });
+
+    /* Console.dirxml */
+    errorBtns[7].addEventListener('click', function(){
+      console.dirxml(document);
+    });
 
 
 
