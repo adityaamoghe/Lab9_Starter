@@ -100,8 +100,32 @@
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
 
-    // Start your code here
-    // You may move this JS to another file if you wish
+    /* Console.log */
+    errorBtns[0].addEventListener('click', function(){
+      console.log("This is a console.log test!");
+    });
+    
+    /* Console.error */
+    errorBtns[1].addEventListener('click', function(){
+      console.error("ERROR ERROR ERROR!");
+    });
+
+    /* Console.count */
+    errorBtns[2].addEventListener('click', function(){
+      console.count("You have pressed this button this many times: ");
+    });
+
+    /* Console.warn */
+    errorBtns[2].addEventListener('click', function(){
+      console.warn("Hello, this is a warning for you.");
+    });
+
+
+
+
+
+
+
   </script>
 </body>
 
