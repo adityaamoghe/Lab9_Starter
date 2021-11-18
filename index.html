@@ -87,11 +87,11 @@
     </section>
   </main>
 
-  /****************** 3rd Party Tracking (STEP 5) ******************/
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
   <script>
     window.TrackJS && TrackJS.install({ 
       token: "6809d85f7b5a4827867ef3cc1dc9d0f6"
+      // for more configuration options, see https://docs.trackjs.com
     });
 
     TrackJS.track('Testing TrackJS!');
@@ -107,7 +107,6 @@
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
-
       /****************** Trying Try/Catch (STEP 3) ******************/
       try{
         output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
@@ -268,9 +267,11 @@
       }
     }
 
-    /****************** The Global Error handler  (STEP 5) ******************/
+    /****************** The Global Error handler and 3rd Party Tracking (STEP 5) ******************/
     window.onerror = function(txt, url, line, col, err) {
       console.log("I am using window.onerror here!!!!");
+      
+      //Note: 3rd party tracking happens at 1st <script> in this doc!
     };
 
 
