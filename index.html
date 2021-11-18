@@ -185,22 +185,25 @@
 
     /* Start Timer */
     errorBtns[11].addEventListener('click', function(){
-      
+      console.time("Timer");
     });
 
     /* End Timer */
     errorBtns[12].addEventListener('click', function(){
-      
+      console.timeEnd("Timer");
     });
 
-    /* Console trace */
+    /* Console.trace */
     errorBtns[13].addEventListener('click', function(){
-      
+      const functionA = () => { functionB(); };
+      const functionB = () => { functionC (); };
+      const functionC = () => { console.trace(); };
+      functionA ();
     });
 
     /* Trigger a global Error */
     errorBtns[14].addEventListener('click', function(){
-      
+      global_error();
     });
 
 
