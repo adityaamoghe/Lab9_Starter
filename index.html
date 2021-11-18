@@ -87,6 +87,17 @@
     </section>
   </main>
 
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "6809d85f7b5a4827867ef3cc1dc9d0f6"
+    });
+
+    TrackJS.track('Testing TrackJS!');
+
+  </script>
+
+
   <script>
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
@@ -96,21 +107,22 @@
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
 
-      /* Try - Catch */
+      /****************** Trying Try/Catch (STEP 3) ******************/
       try{
         output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
         console.log("You have valid formatting and no errors!")
       }
       catch(error){
-        console.error('You have made an error: \n\t' + error);
+        console.error('You have made an error.' );
+        throw(error);
       }
       finally{
-        console.log("(-.-)Zzz...");
-        
+        console.log("°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸");
       }
 
     });
 
+    /****************** Adding Buttons for Console Testing (STEP 2) ******************/
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
 
     /* Console.log */
@@ -216,8 +228,50 @@
 
     /* Trigger a global Error */
     errorBtns[14].addEventListener('click', function(){
-      global_error();
+      let globalError = new Error("GLOBAL ERORR!!!");
+      throw globalError;
     });
+
+    /****************** Throw and Custom Errors (STEP 4) ******************/
+    class MyErrorClass extends Error{
+      constructor(message) {
+        super(message); 
+        this.name = "ThereIsError";
+      }
+    }
+
+    function customError(json){
+      let userInfo = JSON.parse(json);
+
+      if(!userInfo.Name){ throw new MyErrorClass("No field -> Name") }
+      if(!userInfo.Age){ throw new MyErrorClass("No field -> Age") }
+      if(!userInfo.Major){ throw new MyErrorClass("No field -> Major") }
+
+      return userInfo;
+
+    }
+
+    try{
+      let userA = customError('{"Name": "Adi", "Age": 56 , "Major": "Biology"}');
+      let userB = customError('{"Name": "Pat",  "Major": "Chemistry"}');
+    }
+    catch(customError){
+      if(customError instanceof MyErrorClass){
+        console.error("Custom Error: Incorrect information: " + customError.message);
+      }
+      else if(customError instanceof SyntaxError){
+        console.error("There is a Syntax Error present: " + customError.message);
+      }
+      else{
+        throw(customError);
+      }
+    }
+
+    /****************** The Global Error handler  (STEP 5) ******************/
+    window.onerror = function(txt, url, line, col, err) {
+      console.log("I am using window.onerror here!!!!");
+    };
+
 
 
   </script>
