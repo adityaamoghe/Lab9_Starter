@@ -95,7 +95,16 @@
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+
+      /* Try - Catch */
+      try{
+        output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+        console.log("You have valid formatting and no errors!")
+      }
+      catch(error){
+        console.error('You have made an error: \n\t' + error); 
+      }
+
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
@@ -205,9 +214,6 @@
     errorBtns[14].addEventListener('click', function(){
       global_error();
     });
-
-
-
 
 
   </script>
