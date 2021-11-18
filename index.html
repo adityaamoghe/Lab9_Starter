@@ -141,6 +141,66 @@
     /* Console.dirxml */
     errorBtns[7].addEventListener('click', function(){
       console.dirxml(document);
+    }); 
+
+    /* Console group start */
+    errorBtns[8].addEventListener('click', function(){
+      console.group("This is the start of a console group:");
+    });
+
+    /* Console group end */
+    errorBtns[9].addEventListener('click', function(){
+      console.groupEnd("This is the end of a console group.");
+    });
+
+    /* Console.table */
+    errorBtns[10].addEventListener('click', function(){
+      console.table([
+        {
+          Name: 'Aditya',
+          Age: '19',
+          Major: 'CSE',
+          Standing: 'Junior',
+        },
+        {
+          Name: 'Pablo',
+          Age: '22',
+          Major: 'Biochemistry',
+          Standing: 'Senior',
+        },
+        {
+          Name: 'Tiffany',
+          Age: '18',
+          Major: 'Economics',
+          Standing: 'Freshman',
+        },
+        {
+          Name: 'Michelle',
+          Age: '19',
+          Major: 'Psychology',
+          Standing: 'Sophomore',
+        }
+      ]);
+    });
+
+    /* Start Timer */
+    errorBtns[11].addEventListener('click', function(){
+      
+    });
+
+    /* End Timer */
+    errorBtns[12].addEventListener('click', function(){
+      
+    });
+
+    /* Console trace */
+    errorBtns[13].addEventListener('click', function(){
+      
+    });
+
+    /* Trigger a global Error */
+    errorBtns[14].addEventListener('click', function(){
+      
     });
 
 
